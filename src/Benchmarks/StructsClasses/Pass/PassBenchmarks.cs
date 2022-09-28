@@ -3,7 +3,7 @@
 [MemoryDiagnoser]
 public class PassBenchmarks
 {
-    [Params(10, 100, 1000)]
+    [Params(1, 2, 5, 10, 100, 1000)]
     public int PassCount { get; set; }
 
     [Benchmark]
