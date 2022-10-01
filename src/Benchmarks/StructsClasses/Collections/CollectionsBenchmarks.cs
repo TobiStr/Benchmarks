@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
 namespace Benchmarks.StructsClasses.Collections;
 
@@ -41,61 +39,61 @@ public class CollectionsBenchmarks
         }
     }
 
-    //[Benchmark(Baseline = true)]
-    //public void InitializeStructArray()
-    //{
-    //    _ = Enumerable
-    //        .Range(0, ItemsCount)
-    //        .Select(i => new TestStruct(i))
-    //        .ToArray();
-    //}
+    [Benchmark]
+    public void InitializeStructArray()
+    {
+        _ = Enumerable
+            .Range(0, ItemsCount)
+            .Select(i => new TestStruct(i))
+            .ToArray();
+    }
 
-    //[Benchmark]
-    //public void InitializeClassArray()
-    //{
-    //    _ = Enumerable
-    //        .Range(0, ItemsCount)
-    //        .Select(i => new TestClass(i))
-    //        .ToArray();
-    //}
+    [Benchmark]
+    public void InitializeClassArray()
+    {
+        _ = Enumerable
+            .Range(0, ItemsCount)
+            .Select(i => new TestClass(i))
+            .ToArray();
+    }
 
-    //[Benchmark(Baseline = true)]
-    //public void TransformStructArray()
-    //{
-    //    _ = structList
-    //        .Select(i => i.Value)
-    //        .ToArray();
-    //}
+    [Benchmark]
+    public void TransformStructArray()
+    {
+        _ = structList
+            .Select(i => i.Value)
+            .ToArray();
+    }
 
-    //[Benchmark]
-    //public void TransformClassArray()
-    //{
-    //    _ = classList
-    //        .Select(i => i.Value)
-    //        .ToArray();
-    //}
+    [Benchmark]
+    public void TransformClassArray()
+    {
+        _ = classList
+            .Select(i => i.Value)
+            .ToArray();
+    }
 
-    //[Benchmark(Baseline = true)]
-    //public void AccessStructSpan()
-    //{
-    //    var span = CollectionsMarshal.AsSpan(structList);
+    [Benchmark(Baseline = true)]
+    public void AccessStructSpan()
+    {
+        var span = CollectionsMarshal.AsSpan(structList);
 
-    //    foreach (var item in span)
-    //    {
-    //        _ = item.Value;
-    //    }
-    //}
+        foreach (var item in span)
+        {
+            _ = item.Value;
+        }
+    }
 
-    //[Benchmark]
-    //public void AccessClassSpan()
-    //{
-    //    var span = CollectionsMarshal.AsSpan(classList);
+    [Benchmark]
+    public void AccessClassSpan()
+    {
+        var span = CollectionsMarshal.AsSpan(classList);
 
-    //    foreach (var item in span)
-    //    {
-    //        _ = item.Value;
-    //    }
-    //}
+        foreach (var item in span)
+        {
+            _ = item.Value;
+        }
+    }
 
     [Benchmark(Baseline = true)]
     public void AccessStructArray()
